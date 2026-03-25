@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Weather</h1>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search city...">
+                <button id="search-btn">Search</button>
+            </div>
+            <button id="location-btn" class="location-btn" title="Use my location">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+            </button>
+        </div>
+
+        <div id="loading" class="loading hidden">Loading weather data...</div>
+        <div id="error" class="error hidden"></div>
+
+        <main id="weather-display" class="weather-display hidden">
+            <div class="current-weather">
+                <div class="weather-content">
+                    <div class="weather-main">
+                        <div class="location-label">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span id="location">--</span>
+                        </div>
+                        <div class="temp-container">
+                            <span id="temp" class="temp">--</span>
+                            <span class="unit">°C</span>
+                        </div>
+                        <div class="condition" id="condition">--</div>
+                    </div>
+                    <div class="weather-icon-large" id="weather-icon">☀️</div>
+                </div>
+            </div>
+
+            <div class="details">
+                <div class="detail-item">
+                    <span class="detail-icon">💧</span>
+                    <span class="detail-label">Humidity</span>
+                    <span id="humidity" class="detail-value">--</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">💨</span>
+                    <span class="detail-label">Wind</span>
+                    <span id="wind" class="detail-value"><span class="wind-arrow">→</span> --</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🌡️</span>
+                    <span class="detail-label">Feels Like</span>
+                    <span id="feels-like" class="detail-value">--</span>
+                </div>
+            </div>
+
+            <div class="forecast">
+                <h2>7-Day Forecast</h2>
+                <div id="forecast-list" class="forecast-list"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
